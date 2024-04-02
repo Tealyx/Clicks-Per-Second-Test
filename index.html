@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr">
+ 
+    <head>
+        <meta charset="UTF-8" />
+        <title>TEST DE CLIQUES</title>
+        <link rel="stylesheet" href="style.css" /> 
+    </head>
+ 
+    <body>
+        <main>
+            <h1>Test de cliques en 10 secondes</h1>
+            <button class="btn" id="btn2">Test de Cliques</button>
+            <button class ="reset" id="resetBtn">Réinitialiser</button>
+            <div class="nbr" id="result"></div>
+        <script>
+            
+            var count = 0;
+            var button = document.getElementById("btn2");
+            var result = document.getElementById("result");
+            var resetBtn = document.getElementById("resetBtn");
+            var timeLeft = 10;
+            var timerId;
+
+            button.onclick = function() {
+              count++; 
+              result.innerHTML = "<span class='score-text'>" + (count / 10).toFixed(1) + " CPS" + " (Temps restant: " + timeLeft + " secondes)";
+              
+              if (!timerId) {
+                timerId = setInterval(function() {
+                  timeLeft--; 
+                  result.innerHTML = "<span class='score-text'>" + (count / 10).toFixed(1) + " CPS" + " (Temps restant: " + timeLeft + " secondes)";
+                  
+                  if (timeLeft <= 0) {
+                    clearInterval(timerId);
+                    button.disabled = true;
+                    resetBtn.style.display = "block";
+                  }
+                }, 1000);
+              }
+            };
+
+            resetBtn.onclick = function() {
+              count = 0;
+              timeLeft = 10;
+              button.disabled = false;
+              result.innerHTML = "";
+              resetBtn.style.display = "none";
+              clearInterval(timerId);
+              timerId = null;
+            };
+
+        </script>
+
+        </main>
+    </body>
+ 
+</html>

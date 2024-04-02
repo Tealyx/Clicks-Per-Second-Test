@@ -1,0 +1,35 @@
+h1 {
+    text-align: center;
+    color: white;
+}
+
+body {
+    background-image: url("bg.jpg");
+    display: block;
+    margin: auto;
+}
+
+.btn {
+    display: block;
+    margin: auto;
+    width: 500px;
+    height: 200px;
+    margin-top: 50px;
+}
+
+.reset {
+    display: block;
+    margin: auto;
+    margin-top: 50px;
+    width: 200px;
+    height: 50px;
+}
+
+.score-text {
+    display: block;
+    margin: auto;
+    text-align: center;
+    margin-top: 50px;
+    font-size: larger;
+    color: white;
+}
